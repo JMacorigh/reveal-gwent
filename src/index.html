@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.scss">
+    </head>
+    <body>
+        <div id="menu"></div>
+        <div id="slides"></div>
+        <script type="x-tmpl-mustache" id="tmpl-menu">
+            <ol>
+                {{ #persons }}
+                    <li>{{ nickname }}</li>
+                {{ /persons }}
+            </ol>
+        
+        </script>
+        <script type="x-tmpl-mustache" id="tmpl-slides">
+            {{ #persons }}
+                <div class="slide" data-anchor="{{ nickname }}">
+                    <div class="slide-background">
+                        <div class="slide-content">
+                            <div class="infos">
+                                <div class="nickname">{{ nickname }}</div>
+                                {{ #twitch }}
+                                    <div class="twitch">{{ twitch }}</div>
+                                {{ /twitch }}
+                                {{ #twitter }}
+                                    <div class="twitter">{{ twitter }}</div>
+                                {{ /twitter }}
+                            </div>
+                            <div class="titles">
+                                <div class="title">
+                                    <div class="flag fr"></div>
+                                    <div class="title-text">Nom proposé : <i><strong>{{ title_fr }}</strong></i></div>
+                                </div>
+                                <div class="title">
+                                    <div class="flag en"></div>
+                                    <div class="title-text">Proposed name : <i><strong>{{ title_en }}</strong></i></div>
+                                </div>
+                            </div>
+                            {{ #description_fr }}
+                                <div class="descriptions">
+                                    <h1>Description</h1>
+                                    <blockquote class="description">
+                                        <span class="flag fr"></span>
+                                        {{ description_fr }}
+                                    </blockquote>
+                                    <blockquote class="description">
+                                        <span class="flag en"></span>
+                                        {{ description_en }}
+                                    </blockquote>
+                                </div>
+                            {{ /description_fr }}
+                            {{ #image }}
+                                <div class="draw">
+                                    <img src="img/{{ image }}" />
+                                </div>
+                            {{ /image }}
+                        </div>
+                    </div>
+                </div>
+            {{ /persons }}
+        
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>
